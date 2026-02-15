@@ -1,0 +1,26 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:js-lib", ":semanticCommits", ":semanticCommitTypeAll(chore)"],
+  "commitMessageTopic": "{{depName}}",
+  "automergeType": "branch",
+  "automerge": true,
+  "major": {
+    "automerge": false
+  },
+  "packageRules": [
+    {
+      "matchDatasources": ["npm"],
+      "minimumReleaseAge": "7 days"
+    },
+    {
+      "matchPackageNames": ["eslint"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
+      "matchPackageNames": ["typescript"],
+      "matchUpdateTypes": ["minor"],
+      "automerge": false
+    }
+  ]
+}
